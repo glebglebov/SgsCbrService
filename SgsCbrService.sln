@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SgsCbrService.WebAPI", "SgsCbrService.WebAPI\SgsCbrService.WebAPI.csproj", "{2E61A282-22A4-4C8B-9001-68204B741CC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SgsCbrService.Core", "SgsCbrService.Core\SgsCbrService.Core.csproj", "{220E0707-088E-4661-B4D5-50E3C77E5CA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E61A282-22A4-4C8B-9001-68204B741CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E61A282-22A4-4C8B-9001-68204B741CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E61A282-22A4-4C8B-9001-68204B741CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E61A282-22A4-4C8B-9001-68204B741CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220E0707-088E-4661-B4D5-50E3C77E5CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220E0707-088E-4661-B4D5-50E3C77E5CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220E0707-088E-4661-B4D5-50E3C77E5CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220E0707-088E-4661-B4D5-50E3C77E5CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5286F55C-476B-449F-9EC0-414762EC732C}
+	EndGlobalSection
+EndGlobal
