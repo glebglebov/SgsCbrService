@@ -24,7 +24,7 @@ namespace SgsCbrService.Core.Interfaces
         /// <param name="day">день месяца</param>
         /// <param name="month">порядковый номер месяца</param>
         /// <param name="year">год</param>
-        Response GetCurrenciesByDate(int day, int month, int year);
+        Task<Response> GetCurrenciesByDate(int day, int month, int year);
 
         /// <summary>
         /// Получить данные о курсе конкретной валюты под дате

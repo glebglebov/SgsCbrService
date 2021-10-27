@@ -47,6 +47,8 @@ namespace SgsCbrService.Core.Services
             return new GetCurrenciesResponse
             {
                 IsOk = true,
+                Count = currencies.Count,
+                Offset = offset,
                 Date = response.Date,
                 Currencies = currencies
             };
@@ -74,9 +76,30 @@ namespace SgsCbrService.Core.Services
             };
         }
 
-        public Response GetCurrenciesByDate(int day, int month, int year)
+        public async Task<Response> GetCurrenciesByDate(int day, int month, int year)
         {
-            throw new NotImplementedException();
+            var response = await _client.GetArchivedDaily(day, month, year);
+
+            if (response == null)
+            {
+                return new Response { IsOk = false };
+            }
+
+            var valutes = response.Valutes.Select(v => v.Value);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Valute, CurrencyDto>());
+            var mapper = new Mapper(config);
+
+            var currencies = mapper.Map<List<CurrencyDto>>(valutes);
+
+            return new GetCurrenciesResponse
+            {
+                IsOk = true,
+                Count = currencies.Count,
+                Offset = 0,
+                Date = response.Date,
+                Currencies = currencies
+            };
         }
 
         public Response GetCurrencyByDate(string id, int day, int month, int year)

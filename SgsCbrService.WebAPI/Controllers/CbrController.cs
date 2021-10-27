@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using SgsCbrService.Core.Interfaces;
 using SgsCbrService.Core.WebApiResponses;
@@ -28,6 +25,12 @@ namespace SgsCbrService.WebAPI.Controllers
             }
 
             return await _cbrService.GetActualCurrencies(count, offset);
+        }
+
+        [HttpGet("/currencies/{day}/{month}/{year}")]
+        public async Task<Response> Get(int day, int month, int year)
+        {
+            return await _cbrService.GetCurrenciesByDate(day, month, year);
         }
 
         [HttpGet("/currency/{id}")]

@@ -30,9 +30,18 @@ namespace SgsCbrService.Core.CBR
         /// <summary>
         /// Получить архивные данные о курсах валют
         /// </summary>
-        public void GetArchivedDaily(int day, int month, int year)
+        public async Task<DailyCurrenciesResponse> GetArchivedDaily(int day, int month, int year)
         {
+            string path = $"/archive/{year}/{month}/{day}/daily_json.js";
 
+            try
+            {
+                return await CallAsync<DailyCurrenciesResponse>(path);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -52,10 +61,10 @@ namespace SgsCbrService.Core.CBR
                 url += "?" + queryParameters;
             }
 
-            var raw = await _client.GetStringAsync(url);
-
             try
             {
+                var raw = await _client.GetStringAsync(url);
+
                 var response = JsonConvert.DeserializeObject<T>(raw);
 
                 return response;
